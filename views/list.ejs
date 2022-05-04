@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="images/tasks.png">
+</head>
+
+<body>
+
+  <div class="box box-edit-1">
+    <h1><%= kindOfDay %></h1>
+  </div>
+
+  <div class="box">
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="Add New Item">
+      <button type="submit" name="button"><img src="images/plus.png" class="img-edit"></button>
+    </form>
+
+
+    <% for (let i=0; i < newListItem.length; i++) {%>
+    <div id="myDiv" class="item">
+
+      <form class="item" action="/delete" method="post">
+        <input type="hidden" name="currentItem" value="<%= newListItem[i] %>">
+        <input type="checkbox">
+        <p><%= newListItem[i] %><button type="submit"><img src="images/trash.png" class="img-edit-2"></button></p>
+      </form>
+
+    </div>
+    <%}%>
+
+    </div>
+
+  </body>
+</html>
